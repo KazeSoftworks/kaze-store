@@ -32,7 +32,6 @@ class ProductsService {
 			setTimeout(() => {
 				return resolve(this.products);
 			}, 5000);
-			return reject('No products in list');
 		});
 	}
 

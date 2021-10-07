@@ -1,5 +1,6 @@
 const express = require('express');
 const router = require('./routes');
+const cors = require('cors');
 
 const {
 	logErrors,
@@ -11,6 +12,23 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
+// const whitelist = [
+// 	'http://localhost:3000',
+// 	'http://localhost:8080',
+// 	'https://kazesoftworks.com',
+// ];
+// const options = {
+// 	origin: (origin, callback) => {
+// 		console.log(origin);
+// 		if (whitelist.includes(origin)) {
+// 			callback(null, true);
+// 		} else {
+// 			callback(new Error('Invalid Access'));
+// 		}
+// 	},
+// };
+//app.use(cors(options));
+app.use(cors());
 app.get('/', (req, res) => {
 	res.send('Hola server express');
 });
